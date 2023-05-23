@@ -2,7 +2,7 @@
 Here we run the program 'dscx'. It creates the descriptor output for an image. Two
 executables are available:
 
-dscx.exe    compiled under Windows 10.
+dscx.exe    compiled under Windows 10
 dscx	      compiled under Ubuntu ...
 
 For documentation see descExtr.pdf. In the following, only an overview is given.
