@@ -13,6 +13,7 @@ Irgb        = imread('../Imgs/img1.jpg');
 %Irgb        = imread('../Imgs/aachen.png');
 [ABbox Ncc] = LoadBboxFunv('../Desc/img1.Bbox');
 [CNT Ncnt]  = LoadCntxSpcEpt('../Desc/img1.CntEpt');
+Ncnt
 
 %% -----   Parameters   -----
 [nLev depth] = size(Ncc);   % # of pyramid levels. depth of segmentation
@@ -39,6 +40,9 @@ end
 
 %% -----   Plot Contours   -----
 % note that these are the endpoints only.
+% A more precise drawing of the contours would be to plot:
+%   endpoint1 - midpoint - endpoint 2
+%
 figure(2); clf;
 
 for l = 1:nLev
