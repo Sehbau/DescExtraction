@@ -7,7 +7,7 @@
 % corresponding to its (pyramidal) level.
 %
 clear;
-addpath('Bbox');
+addpath('Bbox');            % add directory 'Bbox'
 
 % Works if you run Matlab in directory UtilMb (otherwise change paths)
 Irgb        = imread('../Imgs/img1.jpg');

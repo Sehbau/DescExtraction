@@ -1,5 +1,6 @@
-% sa p_BoundBoxPyr1Lv
-
+% 
+% Plots a list of bounding boxes.
+%
 function [] = p_BboxL(ABbox, ixCol)
 
 if nargin==1, ixCol=3; end
@@ -20,7 +21,7 @@ Col(8,:) = [255 255 255]; % white
 Col      = Col ./ 255;
 
 for i = 1:nBox
-    p_BoundBox(ABbox(i,:), Col(ixCol,:), bJit);    
+    p_BoundBox1(ABbox(i,:), Col(ixCol,:), bJit);    
 end
 
 end

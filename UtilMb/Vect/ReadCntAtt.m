@@ -9,13 +9,13 @@ S = [];
 nCnt  = fread(fileID, 1,  'int=>int');
 
 % =====   Geometry   =====
-S.Les = fread(fileID, nCnt, 'float=>single');
-S.Str = fread(fileID, nCnt, 'float=>single');
+S.Les = fread(fileID, nCnt, 'float=>single'); % length
+S.Str = fread(fileID, nCnt, 'float=>single'); % straightness
 
 % =====   Position   =====
-S.Ori  = fread(fileID, nCnt, 'float=>single');
-S.PosV = fread(fileID, nCnt, 'float=>single');
-S.PosH = fread(fileID, nCnt, 'float=>single');
+S.Ori  = fread(fileID, nCnt, 'float=>single'); % orientation angle
+S.PosV = fread(fileID, nCnt, 'float=>single'); % vertical position
+S.PosH = fread(fileID, nCnt, 'float=>single'); % horizontal position 
 S.Tif  = fread(fileID, nCnt, 'float=>single'); % depth/range (from sensor)
 
 % =====   Appearance   =====
