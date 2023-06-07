@@ -14,14 +14,18 @@ bGrp  = fread(fileID, 1,  'uint8=>uint8'); % not used at the moment
 
 
 assert(nLev<12,'nLev too large: %d', nLev);
-assert(szV<5000, 'szV unresoable: %d', szV);
-assert(szH<5000, 'szH unresoable: %d', szH);
+assert(szV<5000, 'szV unreasonable: %d', szV);
+assert(szH<5000, 'szH unreasnoable: %d', szH);
 
 %% =====  Spaces  =====
 [V.ACNT Kt.Ncnt] = ReadCntSpc(fileID);
 [V.ARSG Kt.Nrsg] = ReadRsgSpc(fileID);
-[V.AARC Kt.Narc] = ReadArcSpc(fileID);
-[V.ASTR Kt.Nstr] = ReadStrSpc(fileID);
+[V.AARCfll Kt.NarcFll] = ReadArcSpc(fileID); % full set
+[V.ASTRfll Kt.NstrFll] = ReadStrSpc(fileID);
+
+% order reversed!?
+[V.ASTRgst Kt.NstrGst] = ReadStrSpc(fileID); % gerust
+[V.AARCgst Kt.NarcGst] = ReadArcSpc(fileID);
 
 Kt.Ncnt
 Kt.nLev    = double(nLev);          % its easier in Matlab with double
