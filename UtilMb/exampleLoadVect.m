@@ -54,7 +54,8 @@ end
 figure(4); clf; 
 for lev = 1:Kt.nLev
     
-    STRlv = AVEC.ASTR{lev};         % extracting one level
+    %STRlv = AVEC.ASTRfll{lev};         % extracting one level
+    STRlv = AVEC.ASTRgst{lev};         % extracting one level
     
     subplot(3, 2, lev); hold on;
     
