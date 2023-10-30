@@ -1,7 +1,15 @@
 %
 % Loads the descriptor histogram as saved under si_DescHist
 %
-function [HFU HFB HSP Nfu Nbiv Nspa] = LoadDescHist(lfn) 
+% IN    lfn     file path
+% OUT   UNF     univariate, flat
+%       BIF     bivariate, flat
+%       SPA     spatial histograms, univariate & bivariate
+%       Nunf    count for UNF
+%       Nbif    count for BIF
+%       Nspa    count for SPA
+%
+function [UNF BIF SPA Nunf Nbif Nspa] = LoadDescHist(lfn) 
 
 fileID   = fopen(lfn, 'r');
 if (fileID<0), error('file %s not found', lfn); end
@@ -10,39 +18,46 @@ if (fileID<0), error('file %s not found', lfn); end
 bReg    = fread(fileID, 1,  'uint8=>uint8'); % not used at the moment
 
 %% =====  flat univariate histograms  =====
-[HFU.Rdg Nfu.Rdg] = ReadCntHist(fileID);
-[HFU.Riv Nfu.Riv] = ReadCntHist(fileID);
-[HFU.Edg Nfu.Edg] = ReadCntHist(fileID);
+[UNF.Rdg Nunf.Rdg] = ReadCntHist(fileID);
+[UNF.Riv Nunf.Riv] = ReadCntHist(fileID);
+[UNF.Edg Nunf.Edg] = ReadCntHist(fileID);
 
-[HFU.Rsg Nfu.Rsg] = ReadRsgHist(fileID);
+[UNF.Skl Nunf.Skl] = ReadCntHist(fileID);
 
-[HFU.Arc Nfu.Arc] = ReadArcHist(fileID);
+[UNF.Rsg Nunf.Rsg] = ReadRsgHist(fileID);
 
-[HFU.Str Nfu.Str] = ReadCntHist(fileID); % same params as Cnt
+[UNF.Arc Nunf.Arc] = ReadArcHist(fileID);
+
+[UNF.Str Nunf.Str] = ReadCntHist(fileID); % same params as Cnt
 
 %% =====  flat bivariate histograms   =====
-[HFB.Rdg HBIV.Rdg Nbiv.Rdg] = ReadCntHbiv(fileID);
-[HFB.Riv HBIV.Riv Nbiv.Riv] = ReadCntHbiv(fileID);
-[HFB.Edg HBIV.Edg Nbiv.Edg] = ReadCntHbiv(fileID);
+[BIF.Rdg HBIV.Rdg Nbif.Rdg] = ReadCntHbiv(fileID);
+[BIF.Riv HBIV.Riv Nbif.Riv] = ReadCntHbiv(fileID);
+[BIF.Edg HBIV.Edg Nbif.Edg] = ReadCntHbiv(fileID);
 
-[HFB.Rsg HBIV.Rsg Nbiv.Rsg] = ReadRsgHbiv(fileID);
+[BIF.Skl HBIV.Skl Nbif.Skl] = ReadCntHbiv(fileID);
 
-[HFB.Arc HBIV.Arc Nbiv.Arc] = ReadArcHbiv(fileID);
+[BIF.Rsg HBIV.Rsg Nbif.Rsg] = ReadRsgHbiv(fileID);
 
-[HFB.Str HBIV.Str Nbiv.Str] = ReadCntHbiv(fileID);
+[BIF.Arc HBIV.Arc Nbif.Arc] = ReadArcHbiv(fileID);
+
+[BIF.Str HBIV.Str Nbif.Str] = ReadCntHbiv(fileID);
 
 %% =====  spatial histograms, uni & biv   ======
-[HSP.CntUni  Nspa.cntUni]   = ReadHistSpa(fileID);
-[HSP.CntBiv  Nspa.cntBiv]   = ReadHistSpa(fileID);
+[SPA.CntUni  Nspa.cntUni]   = ReadHistSpa(fileID);
+[SPA.CntBiv  Nspa.cntBiv]   = ReadHistSpa(fileID);
 
-[HSP.RsgUni  Nspa.rsgUni]   = ReadHistSpa(fileID);
-[HSP.RsgBiv  Nspa.rsgBiv]   = ReadHistSpa(fileID);
+[SPA.SklUni  Nspa.sklUni]   = ReadHistSpa(fileID);
+[SPA.SklBiv  Nspa.sklBiv]   = ReadHistSpa(fileID);
 
-[HSP.ArcUni  Nspa.arcUni]   = ReadHistSpa(fileID);
-[HSP.ArcBiv  Nspa.arcBiv]   = ReadHistSpa(fileID);
+[SPA.RsgUni  Nspa.rsgUni]   = ReadHistSpa(fileID);
+[SPA.RsgBiv  Nspa.rsgBiv]   = ReadHistSpa(fileID);
 
-[HSP.StrUni  Nspa.strUni]   = ReadHistSpa(fileID);
-[HSP.StrBiv  Nspa.strBiv]   = ReadHistSpa(fileID);
+[SPA.ArcUni  Nspa.arcUni]   = ReadHistSpa(fileID);
+[SPA.ArcBiv  Nspa.arcBiv]   = ReadHistSpa(fileID);
+
+[SPA.StrUni  Nspa.strUni]   = ReadHistSpa(fileID);
+[SPA.StrBiv  Nspa.strBiv]   = ReadHistSpa(fileID);
 
 %% =====  trailer/idf   ======
 idf    = fread(fileID, 1,  'int=>int'); % identifier
