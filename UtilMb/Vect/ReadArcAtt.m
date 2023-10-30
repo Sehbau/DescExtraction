@@ -44,7 +44,8 @@ nApp    = fread(fileID, 1, 'int=>int');
 assert(nGeo==2);
 assert(nApp==3);
 
-S.nRsg = nArc;
+S.nArc = nArc;
+if nArc==0, return; end
 
 %% ---- Further verification
 assert(max(S.OrgDth)<6); % more than 5 depths is unfeasible

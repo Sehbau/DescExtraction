@@ -29,7 +29,7 @@ for i = 1:RSG.nRsg
     end
     
     % signs matter for transformation ij->Cartesian
-    hl = rectangle('position', [posH-rds  posV+rds wth hgt]);
+    hl = rectangle('position', [posH-rds  posV-rds wth hgt]);
     set(hl, 'curvature', [1 1]);
 
     % add color:

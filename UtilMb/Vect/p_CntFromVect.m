@@ -12,7 +12,7 @@ function [] = p_CntFromVect(CNT)
 
 for i = 1:CNT.nCnt
 
-    posV    = 1-CNT.PosV(i);        % vertical position (ij->Cartes.)
+    posV    = 1 - CNT.PosV(i);      % vertical position (ij->Cartes.)
     posH    = CNT.PosH(i);          % horizontal position
     ori     = CNT.Ori(i);           % orientation angle
     les     = CNT.Les(i);           % length

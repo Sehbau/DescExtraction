@@ -39,7 +39,9 @@ assert(nPos==3);
 S.nStr = nStr;
 
 %% ---- Further verification
-assert(max(S.OrgDth)<6); % more than 5 depths is unfeasible
+if S.nStr
+    assert(max(S.OrgDth)<6); % more than 5 depths is unfeasible
+end
 
 end
 

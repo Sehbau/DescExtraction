@@ -1,5 +1,5 @@
 %
-% Reads space of radsig attributes as saved under RsgIO.h-w_RsgSpc
+% Reads space of arc attributes as saved under ArcIO.h-w_ArcSpc
 %
 function [AARC Narc] = ReadArcSpc(fid)
 
