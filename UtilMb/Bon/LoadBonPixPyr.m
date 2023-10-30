@@ -28,9 +28,12 @@ for l = 1:nLev
     
     %% ====  arrays  ====
     APix = cell(nBon,1);
+    Org  = zeros(nBon,1);  % not returned. 
     for b = 1:nBon
         
         nPx     = fread(fileID, 1, 'int=>single');
+        Org(b)  = fread(fileID, 1, 'uint8=>single');
+        
         Pix.Rw  = fread(fileID, nPx, 'int16=>single');
         Pix.Cl  = fread(fileID, nPx, 'int16=>single');
         

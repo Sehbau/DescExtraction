@@ -1,8 +1,15 @@
 %
 % Loads boundary bounding boxes with 6 parameters:
 %   [top bot lef rit contrast depth]
+% They are saved per level with gray-scale variability at the end of each
+% level list:
+%   {level 0} [2]
+%   {level 1} [2]
+%     ....
+%   {level top} [2]
 %
 % Loads as saved under B_BON/Util/BonIO.h-s_BonBboxPyr().
+% Bounding boxes are already scaled to original image resolution.
 %
 function [ABbox Nbon IxX] = LoadBonBboxPyr(lfn) 
 
