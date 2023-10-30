@@ -12,67 +12,79 @@ pthHist = '../Desc/img1.hst';     % histograms for one image
 
 %% --------   Plot Flat Univariate   ---------
 figure(1);
-subplot(6,1,1);
+subplot(7,1,1);
 bar(HFU.Rdg); ylabel('Ridge');
 
-subplot(6,1,2);
+subplot(7,1,2);
 bar(HFU.Riv); ylabel('River');
 
-subplot(6,1,3);
+subplot(7,1,3);
 bar(HFU.Edg); ylabel('Edge');
 
-subplot(6,1,4);
+subplot(7,1,4);
+bar(HFU.Skl); ylabel('Skl');
+
+subplot(7,1,5);
 bar(HFU.Rsg); ylabel('RadSig');
 
-subplot(6,1,5);
+subplot(7,1,6);
 bar(HFU.Arc); ylabel('Arc');
 
-subplot(6,1,6);
+subplot(7,1,7);
 bar(HFU.Str); ylabel('Str');
 
 %% --------   Plot Flat Bivariate   ---------
 figure(2);
-subplot(6,1,1);
+subplot(7,1,1);
 bar(HFB.Rdg); ylabel('Ridge');
 
-subplot(6,1,2);
+subplot(7,1,2);
 bar(HFB.Riv); ylabel('River');
 
-subplot(6,1,3);
+subplot(7,1,3);
 bar(HFB.Edg); ylabel('Edge');
 
-subplot(6,1,4);
+subplot(7,1,4);
+bar(HFB.Skl); ylabel('Skl');
+
+subplot(7,1,5);
 bar(HFB.Rsg); ylabel('RadSig');
 
-subplot(6,1,5);
+subplot(7,1,6);
 bar(HFB.Arc); ylabel('Arc');
 
-subplot(6,1,6);
+subplot(7,1,7);
 bar(HFB.Str); ylabel('Str');
 
 %% --------   Plot Spatial Uni/Biv   ---------
 figure(3);
-subplot(8,1,1);
+subplot(10,1,1);
 bar(HSP.CntUni); ylabel('CntUni');
 
-subplot(8,1,2);
+subplot(10,1,2);
 bar(HSP.CntBiv); ylabel('CntBiv');
 
-subplot(8,1,3);
+subplot(10,1,3);
+bar(HSP.SklUni); ylabel('SklUni');
+
+subplot(10,1,4);
+bar(HSP.SklBiv); ylabel('SklBiv');
+
+subplot(10,1,5);
 bar(HSP.RsgUni); ylabel('RsgUni');
 
-subplot(8,1,4);
+subplot(10,1,6);
 bar(HSP.RsgBiv); ylabel('RsgBiv');
 
-subplot(8,1,5);
+subplot(10,1,7);
 bar(HSP.ArcUni); ylabel('ArcUni');
 
-subplot(8,1,6);
+subplot(10,1,8);
 bar(HSP.ArcBiv); ylabel('ArcBiv');
 
-subplot(8,1,7);
+subplot(10,1,9);
 bar(HSP.StrUni); ylabel('StrUni');
 
-subplot(8,1,8);
+subplot(10,1,10);
 bar(HSP.StrBiv); ylabel('StrBiv');
 

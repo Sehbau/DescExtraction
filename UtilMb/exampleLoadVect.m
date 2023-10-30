@@ -1,5 +1,8 @@
 %
 % Example for loading the vectors. 
+%
+% Run from WITHIN directory UtilMb
+%
 % Function scripts in directory 'Vect/'
 %
 clear;
@@ -18,7 +21,7 @@ fprintf('Ori angles %1.3f to %1.3f\n', min(C1.Ori), max(C1.Ori));
 fprintf('Lengths    %1.3f to %1.3f\n', min(C1.Les), max(C1.Les));
 
 %% -----   Plot Contours  -----
-figure(1); clf; 
+hf = figure(1); clf; set(hf, 'name', 'Contours');
 for lev = 1:Kt.nLev
     
     CNTlv = AVEC.ACNT{lev};         % extracting one level
@@ -29,8 +32,8 @@ for lev = 1:Kt.nLev
 
     set(gca,'xlim',[-0.02 1.02]);
     set(gca,'ylim',[-0.02 1.02]);
-    
 end
+
 %% -----   Plot Rsg  -----
 figure(2); clf; 
 for lev = 1:Kt.nLev
@@ -46,12 +49,24 @@ for lev = 1:Kt.nLev
     
 end
 
-%% -----   Plot Arcs  -----
-% not implemented yet
+%% -----   Plot Arcs & Straighters -----
+% Plots only peakpoints for arcs
 % I need to estimate endpoints. Or perhaps include them in output.
+figure(3); clf;
+for lev = 1:Kt.nLev
 
-%% -----   Plot Straighters  -----
-figure(4); clf; 
+    ARClv = AVEC.AARCgst{lev};
+    
+    subplot(3, 2, lev); hold on;
+    
+    p_ArcFromVect(ARClv);           % in directory 'Vect'
+
+    set(gca,'xlim',[-0.02 1.02]);
+    set(gca,'ylim',[-0.02 1.02]);
+    
+end
+
+% -----   Plot Straighters  -----
 for lev = 1:Kt.nLev
     
     %STRlv = AVEC.ASTRfll{lev};         % extracting one level
