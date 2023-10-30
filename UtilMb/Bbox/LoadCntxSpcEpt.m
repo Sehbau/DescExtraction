@@ -1,5 +1,6 @@
 %
-% Loads RRE endpoints as saved under CntIO.h:si_CntxSpcEpt.
+% Loads RRE endpoints as saved under CntIOrre.h:si_CntxSpcEpt.
+% Coordinates are NOT scaled and correspond to pyramid size.
 %
 % af LoadCntxSpc
 %

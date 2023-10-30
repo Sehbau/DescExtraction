@@ -1,5 +1,12 @@
 %
-% Loads bounding boxes of CCs as saved under FunvIO.h:s_FunvBboxAll.
+% Loads bounding boxes of CCs {nLev}{depth} as saved under
+% FunvIO.h:s_FunvBboxAll. For demo purposes only. 
+%
+% Bounding boxes are NOT scaled: they correspond to the pyramid size.
+% Use LoadBonBboxPyr for upscaled coordinates.
+%
+% OUT   ABbox   {nLev}{depth} pyramid of bboxes
+%       Nflk    [nLev][depth] the count per map
 %
 function [ABbox Nflk]= LoadBboxFunv(lfn) 
 
