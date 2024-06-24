@@ -1,0 +1,18 @@
+#
+# Parameters for shape extraction
+# 
+# --- ShpAnf.h
+
+# Shp.minCtr 5
+
+#Shp.minSmo 0.2
+
+Shp.minNpx 12
+Shp.maxNpx 2000
+
+
+
+
+
+
+
