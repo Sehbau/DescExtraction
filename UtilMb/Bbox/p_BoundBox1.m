@@ -24,17 +24,20 @@ hr = rectangle('position', [lef top wth hgt]);
 
 set(hr, 'edgecolor', col);
 
-%% --------   Contrast   ----------
+%% --------   Contrast (or other attribute)  ----------
+% Expects values E [0,255]
 if bCtr
     ctr  = Prm(5);
     if ctr==0,
         warning('contrast=0');
-        ctr=1;
+        ctr = 1;
     end
-    liwi = ceil(ctr/50);
-    set(hr, 'linewidth', liwi);
-end
 
+    %liwi = ceil( ctr / 50 );
+    liwi = ctr / 50;
+    set(hr, 'linewidth', liwi);
+    
+end
 
 end
 

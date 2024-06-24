@@ -1,5 +1,5 @@
 %
-% Reads a spatial histogram. It's simply an array of integers.
+% Reads a spatial histogram as saved under w_HistSpa
 %
 % cf LoadDescHist.m
 %

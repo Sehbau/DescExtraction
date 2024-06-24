@@ -30,12 +30,13 @@ for l = 1:nLev
     Asp.RGB.Grn = fread(fileID, nBon, 'uint8=>single');
     Asp.RGB.Blu = fread(fileID, nBon, 'uint8=>single');
 
-    Asp.Cvrg    = fread(fileID, nBon, 'float=>single');     % coverage
+    %Asp.Cvrg    = fread(fileID, nBon, 'float=>single');     % coverage
     Asp.Bord    = fread(fileID, nBon, 'uint8=>single');     % border info
 
     Asp.ArePix  = fread(fileID, nBon, 'int=>single');       % area pixels
     Asp.AreBon  = fread(fileID, nBon, 'float=>single');     % area boundary
     Asp.Peri    = fread(fileID, nBon, 'float=>single');     % perimeter
+    Asp.Cwd     = fread(fileID, nBon, 'int32=>single');     % perimeter
     
     AASP{l} = Asp;
 end

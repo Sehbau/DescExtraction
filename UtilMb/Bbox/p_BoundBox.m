@@ -6,6 +6,7 @@ function [] = p_BoundBox(PRM, col, bJit, bCtr)
 
 if nargin==2, bJit=0;  bCtr=0; end
 if nargin==3, bCtr=0; end 
+bNotWarnedYetCtr = 0;
 
 for i = 1:size(PRM,1)
     
@@ -29,7 +30,10 @@ for i = 1:size(PRM,1)
     if bCtr                 
         ctr  = Bbox(5);
         if ctr==0, 
-            warning('contrast=0');
+            if bNotWarnedYetCtr==0
+                warning('contrast=0');
+                bNotWarnedYetCtr = 1;
+            end
             ctr=1;
         end
         liwi = ceil(ctr/50);

@@ -1,6 +1,11 @@
 %
 % Plots contour pyramid into one figure.
 %
+% IN  ACNT    contour space
+%     figNo   figure number
+%     titStr  figure title
+%     BxNorm  bounding box, ie. of focus
+%
 function [] = PlotCntPyr(ACNT, figNo, titStr, BxNorm)
 
 if (nargin==4), bBox = 1; else bBox = 0; end
@@ -18,8 +23,14 @@ for lev = 1:nLev
     
     subplot(3, 2, lev); hold on;
     
-    p_CntFromVect(CNTlv);           % in directory 'Vect'
-
+    if 1
+        p_CntFromVect(CNTlv);           % in directory 'Vect'
+    elseif 0
+        % this was for testing:
+        Ept = f_CntEptFromVect( CNTlv );
+        p_CntFromEpt( Ept, 'b', 'scl' );
+    end
+    
     if bBox
         hr = rectangle('position', BxNorm); % x/y/w/h
         set(hr,'edgecolor',[0.5 0.5 0.5]);

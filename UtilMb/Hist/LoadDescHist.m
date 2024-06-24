@@ -11,6 +11,9 @@
 %
 function [UNF BIF SPA Nunf Nbif Nspa] = LoadDescHist(lfn) 
 
+HISTIOIDF = 8888888;
+
+
 fileID   = fopen(lfn, 'r');
 if (fileID<0), error('file %s not found', lfn); end
 
@@ -30,6 +33,14 @@ bReg    = fread(fileID, 1,  'uint8=>uint8'); % not used at the moment
 
 [UNF.Str Nunf.Str] = ReadCntHist(fileID); % same params as Cnt
 
+[UNF.Shp Nunf.Shp] = ReadShpHist(fileID); 
+
+[UNF.Lof Nunf.Lof] = ReadHistLoft(fileID); % local feature histogram
+
+idf    = fread(fileID, 1,  'int=>int'); % identifier
+assert(idf==HISTIOIDF, 'Univariate falsch');
+
+
 %% =====  flat bivariate histograms   =====
 [BIF.Rdg HBIV.Rdg Nbif.Rdg] = ReadCntHbiv(fileID);
 [BIF.Riv HBIV.Riv Nbif.Riv] = ReadCntHbiv(fileID);
@@ -42,6 +53,12 @@ bReg    = fread(fileID, 1,  'uint8=>uint8'); % not used at the moment
 [BIF.Arc HBIV.Arc Nbif.Arc] = ReadArcHbiv(fileID);
 
 [BIF.Str HBIV.Str Nbif.Str] = ReadCntHbiv(fileID);
+
+[BIF.Shp          Nbif.Shp] = ReadShpHbiv(fileID);
+
+idf    = fread(fileID, 1,  'int=>int'); % identifier
+assert(idf==HISTIOIDF, 'Bivariate falsch');
+
 
 %% =====  spatial histograms, uni & biv   ======
 [SPA.CntUni  Nspa.cntUni]   = ReadHistSpa(fileID);
@@ -59,9 +76,11 @@ bReg    = fread(fileID, 1,  'uint8=>uint8'); % not used at the moment
 [SPA.StrUni  Nspa.strUni]   = ReadHistSpa(fileID);
 [SPA.StrBiv  Nspa.strBiv]   = ReadHistSpa(fileID);
 
+[SPA.ShpUni  Nspa.shpUni]   = ReadHistSpa(fileID);
+
 %% =====  trailer/idf   ======
 idf    = fread(fileID, 1,  'int=>int'); % identifier
-assert(idf==999);
+assert(idf==HISTIOIDF, 'Spatial falsch');
 
 fclose(fileID);
 
