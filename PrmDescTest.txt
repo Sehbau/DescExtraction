@@ -1,0 +1,10 @@
+#
+# Parameters for descriptor extraction
+# 
+Cnt.minCtr 0.02
+
+Shp.minCtr 15
+# Shp.minSmo 0.2
+
+
+
