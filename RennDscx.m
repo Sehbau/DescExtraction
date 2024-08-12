@@ -14,9 +14,9 @@ if nargin==2,
     Admin.optS    = '';
 end
 
-cmd  	= [Admin.pthProg 'dscx ' pthImg ' ' pthOut ' ' Admin.optS ];
+cmnd  	= [Admin.pthProg 'dscx ' pthImg ' ' pthOut ' ' Admin.optS ];
 
-[status Out] = dos(cmd);                   % excecute program
+[status Out] = dos(cmnd);                   % excecute program
 
 %% ------  Status  ------
 if status>0
@@ -28,7 +28,7 @@ end
 ixEOP = strfind( Out, 'EndOfProgram');
 
 if isempty(ixEOP)
-    warning('Command %s not executed.', cmd);
+    warning('Command %s not executed.', cmnd);
     Out
     fprintf('Paused');
     pause();

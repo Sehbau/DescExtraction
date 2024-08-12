@@ -10,7 +10,7 @@
 %         runFocxv1.m, runFocFew.m, ...
 %
 clear;
-run('../globalsSB'); 
+run('../UtilMb/globalsSB'); % assumes script is run from dir 'DescExtr'
 cd( PthProg.descExtr );
     
 %strImg 	= 'img1.jpg';
