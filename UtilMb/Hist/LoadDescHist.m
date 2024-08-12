@@ -18,7 +18,8 @@ fileID   = fopen(lfn, 'r');
 if (fileID<0), error('file %s not found', lfn); end
 
 %% -----  regional histograms
-bReg    = fread(fileID, 1,  'uint8=>uint8'); % not used at the moment
+Hed     = ReadHistFileHead( fileID );
+%bReg    = fread(fileID, 1,  'uint8=>uint8'); % not used at the moment
 
 %% =====  flat univariate histograms  =====
 [UNF.Rdg Nunf.Rdg] = ReadCntHist(fileID);

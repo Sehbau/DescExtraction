@@ -3,15 +3,15 @@
 %
 % cf LoadCntItgrSal.m
 %
-function [KOLM] = ReadKOLM(fileID)
-
+function [KOLM] = ReadKOLM( fileID )
+ 
 Dim = struct;
 
 %% =====    # of kols/bins   =====
 Dim.nKol  = fread( fileID, 1,  'int=>int');
 Dim.nBin  = fread( fileID, 1,  'int=>int');
 
-fprintf('nKol/nBin  [%d %d]\n', Dim.nKol, Dim.nBin );
+% fprintf('nKol/nBin  [%d %d]\n', Dim.nKol, Dim.nBin );
 
 %% =====   Kolumns   =====
 KOLM.H    = fread( fileID, Dim.nKol * Dim.nBin, 'int16=>int16');

@@ -15,6 +15,7 @@ D.vebi   = '.veb';
 D.hsti   = '.hst';
 D.utzi   = '.utz';		% utilities (deployed yet?)
 D.objp   = '.obp';		% object proposals?			
+D.salc   = '.slc';		% saliency contours
 D.cvpo   = '.cvpo';		% curve partitions organization (deployed yet?)
 D.bbox   = '.Bbox';		% s_FunvBboxAll, ai dscx.cpp
 

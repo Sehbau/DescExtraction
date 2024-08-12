@@ -5,7 +5,7 @@
 %      Fixt   file extensions ( u_FileExtensions.m )
 % OUT  S      struct with filepaths including the file extensions
 % 
-function S = u_FipasDscxWithStem( stm, Fixt, bOSisWin )
+function S = o_FipasDscxWithStem( stm, Fixt, bOSisWin )
 
 if nargin==2                % argument bOSisWin missing...
     bOSisWin = 0;           % ...then we assum linux

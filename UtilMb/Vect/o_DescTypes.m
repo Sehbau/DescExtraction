@@ -3,16 +3,30 @@
 % 
 % sa u_LabDscTyp.m
 %
-function S = o_DescTypes( )
+function [aDty nDty] = o_DescTypes( typ )
 
-S.aDty    = {'Cnt' 'Rsg' 'Arc' 'Str' 'Shp'};
-S.aDtySkl = {'Skl' 'Rsg' 'Arc' 'Str' 'Shp'};
+if strcmp( typ, 'crasshp' )
 
-S.aCRAS   = {'Skl' 'Rsg' 'Arc' 'Str'};
-S.nCRAS   = 4;
+    aDty    = {'Cnt' 'Rsg' 'Arc' 'Str' 'Shp'};
 
+elseif strcmp( typ, 'crassb' )
 
-S.nDty    = length(S.aDty);
+    aDty    = {'Skl' 'Rsg' 'Arc' 'Str' 'Shp' 'Bnd'};
+
+elseif strcmp( typ, 'sklrasshp' )
+
+    aDty    = {'Skl' 'Rsg' 'Arc' 'Str' 'Shp'};
+
+elseif strcmp( typ, 'cras' )
+
+    aDty    = {'Skl' 'Rsg' 'Arc' 'Str'};
+else
+    
+    fprintf('typ %s not implemented', typ);
+end
+    
+
+nDty    = length(aDty);
 
 
 end

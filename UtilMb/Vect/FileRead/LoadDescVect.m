@@ -14,7 +14,7 @@ Hed     = ReadDescFileHead( fileID, 44 );
 [V.ARSG Kt.Nrsg]        = ReadRsgSpc(fileID);
 [V.AARCfll Kt.NarcFll]  = ReadArcSpc(fileID); % full set
 [V.ASTRfll Kt.NstrFll]  = ReadStrSpc(fileID);
-[V.ASHP Kt.Nshp]        = ReadShpSpc(fileID); % shape
+[V.ASHP  Kt.Nshp]       = ReadShpSpc(fileID); % shape
 
 idfSpc    = fread(fileID, 1,  'int=>int');    % identifier
 if (idfSpc~=66666) 
@@ -29,6 +29,8 @@ idfGst    = fread(fileID, 1,  'int=>int');    % identifier
 if (idfGst~=77777) 
     error('Gerust not properly read (see si_DescVect');
 end
+
+[V.ABNDG Kt.Nbndg]      = ReadBndgSpc(fileID); % bundles
 
 %% -----  Labels  -----
 V.LabShpScors = ReadAttLab( fileID, size(V.ASHP{1}.STR,2) );
@@ -47,6 +49,7 @@ if (idf~=99999)
     fprintf('file identifier not correct %d. Expected 99999\n', idf);
     V.ASHP
     Kt.Nshp
+    pause('pausing in LoadDescVect');
 end
 
 %% ------   A2S   -------
